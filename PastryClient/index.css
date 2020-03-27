@@ -1,0 +1,59 @@
+body {
+    margin:0;
+}
+
+.nav-bar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: blanchedalmond;
+    padding: 10px;
+}
+
+.logo {
+    width: 130px;
+    height: 50px;
+}
+
+.product-list {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.product-card {
+    width: 300px;
+    margin: 14px;
+}
+
+.product-description{
+    height: 60px;
+    overflow: hidden;
+}
+
+.search-text-box{
+    margin-left: 14px;
+    margin-top: 15px;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;     
+}
+
+.search-button {
+    margin-left: 10px;
+    margin-top: -8px;
+    background: cadetblue !important;
+    border-color: cadetblue !important;
+}
+
+.content-area {
+    margin-top: 70px;
+    /* background: url(./assets/pastry-bg.png) no-repeat center center/cover; */
+}
+
+.chatbot {
+    align-self: flex-end;
+}
