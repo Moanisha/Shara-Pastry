@@ -16,7 +16,7 @@ const SearchBox = (props) => {
             />
             <Button 
                 className="search-button"
-                onClick={() => props.fetchProducts(inputText)}
+                onClick={() => props.fetchProducts({searchText: inputText})}
             > 
                 Search
             </Button>

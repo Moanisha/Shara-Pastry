@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
 import SharaChatbot from './sharaChatbot';
-import Product from './product';
+import ProductList from './productList';
 import SearchBox from './searchBox';
+import SortItem from './sortItem';
 
 class Home extends Component{
     render(){
         return(
             <div className="content-area">
-                <SearchBox/>
-                <Product/>
+                <div className="task-bar">
+                    <SearchBox/>
+                    <SortItem/>
+                </div>
+                <ProductList/>
                 <SharaChatbot/>
             </div>
         )

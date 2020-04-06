@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.BLOB
   });
 
-  // Product.associate = function(models) {
-  //   // associations can be defined here
-  // };
+  Product.associate = function(models) {
+    models.Product.belongsToMany(models.User, {as: 'Pastry', through: 'Favorites'});
+  };
 
   return Product;
 };

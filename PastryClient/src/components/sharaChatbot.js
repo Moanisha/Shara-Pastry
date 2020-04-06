@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 
@@ -19,7 +20,7 @@ const SharaChatbot =  (props) => {
   const steps = [
       {
         id: "Greet",
-        message: "Hello, Welcome to our shop",
+        message: `Hello `+ props.user.user.username.toUpperCase() +`, Welcome to our shop`,
         trigger: "Ask Name"
       },
       {
@@ -50,10 +51,10 @@ const SharaChatbot =  (props) => {
       headerBgColor: "black",
       headerFontColor: "white",
       headerFontSize: "25px",
-      botBubbleColor: "#db818f",
-      botFontColor: "#fff",
-      userBubbleColor: "#c1e6d5",
-      userFontColor: "black"
+      botBubbleColor: "beige",
+      botFontColor: "black",
+      userBubbleColor: "black",
+      userFontColor: "beige"
   };
 
   return(
@@ -65,4 +66,10 @@ const SharaChatbot =  (props) => {
   )
 }
 
-export default SharaChatbot;
+
+const mapStateToProps = (state) => {
+  const user = state.userReducer;
+  return {user};
+}
+
+export default connect(mapStateToProps)(SharaChatbot);

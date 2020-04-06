@@ -11,6 +11,8 @@ const productReducer = (state = DEFAULT_PRODUCT, action) => {
             return {...state, message: action.message, status: fetchStates.error}
         case PRODUCTS.FETCH_SUCCESS:
             return {...state, products: action.products, status: fetchStates.success}
+        case PRODUCTS.FETCH_ID_SUCCESS:
+            return {...state, productDetails: action, status: fetchStates.success}    
         default:
             return state
     }
