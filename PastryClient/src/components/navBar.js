@@ -11,7 +11,6 @@ class NavBar extends Component{
     state = {anchorEl: null};
     render(){
         
-    console.log("user", this.props.user);
         const handleClick = (event) => {
             this.setState({anchorEl: event.currentTarget});
         };

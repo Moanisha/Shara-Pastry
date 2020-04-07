@@ -8,6 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {connect} from 'react-redux';
+import {getProduct} from '../actions/products'
+import {getWishList} from '../actions/favorites';
 
 const useStyles = makeStyles({
   table: {
@@ -29,7 +31,7 @@ const rows = [
 
 const Wishlist = (props) => {
 
-  console.log("wishlist")
+  const favProducts = props.favorites.product;
   const classes = useStyles();
 
   return (
@@ -66,7 +68,8 @@ const Wishlist = (props) => {
 const mapStateToProps = (state) => {
   // const products = state.productReducer;
   const favorites = state.favoriteReducer.product;
-  return {favorites};
+  const productDetails = state.productReducer.productDetails;
+  return {favorites, productDetails};
 }
 
 export default connect(mapStateToProps, {getProduct, getWishList})(Wishlist);

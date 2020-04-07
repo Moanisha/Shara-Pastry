@@ -11,7 +11,6 @@ export const login = ({username, password}) => (dispatch) => {
     })
     .then(response => response.json())
     .then(json => {
-        console.log("json",json);
         if(json.type === 'error'){
             dispatch({
                 type: ACCOUNT.FETCH_ERROR,
@@ -37,7 +36,6 @@ export const logout = () => (dispatch) => {
     })
     .then(response => response.json())
     .then(json => {
-        console.log("json",json);
         if(json.type === 'error'){
             dispatch({
                 type: ACCOUNT.FETCH_ERROR,

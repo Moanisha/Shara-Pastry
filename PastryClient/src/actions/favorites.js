@@ -19,7 +19,7 @@ export const saveWishList = ({userId, productId}) => (dispatch) => {
         } else {
             dispatch({
                 type: FAVORITES.FETCH_SUCCESS,
-                ...json
+                favorite: json
             });
         }
     })
@@ -47,7 +47,7 @@ export const removeWishList = ({userId, productId}) => (dispatch) => {
         } else {
             dispatch({
                 type: FAVORITES.FETCH_SUCCESS,
-                ...json
+                favorite: json
             });
         }
     })

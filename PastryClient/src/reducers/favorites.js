@@ -10,7 +10,7 @@ const favoriteReducer = (state = DEFAULT_FAVORITES, action) => {
         case FAVORITES.FETCH_ERROR:
             return {...state, message: action.message, status: fetchStates.error}
         case FAVORITES.FETCH_SUCCESS:
-            return {...state, favorite: action, status: fetchStates.success}
+            return {...state, favorite: action.favorite, status: fetchStates.success}
         case FAVORITES.FETCH_FAV_SUCCESS:
             return {...state, product: action}
         // case FAVORITES.FETCH_LOGOUT_SUCCESS:

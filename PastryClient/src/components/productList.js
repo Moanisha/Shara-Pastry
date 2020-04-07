@@ -8,27 +8,25 @@ class ProductList extends Component{
     componentDidMount(){
         const {fetchProducts} = this.props;
         fetchProducts();
-        this.props.getWishList({userId: 1});
+        this.props.getWishList({userId: this.props.user.id});
     }
 
     render(){
         const products = this.props.products;
         const favorites = this.props.favorites;
-        let productsArray = [];
-        
+        this.productsArray = [];
+    
         if(products.products && favorites){
             products.products.map(product => {
                 favorites.product.includes(product.id) ?
-                    productsArray.push({isFav:true, product:product}):
-                    productsArray.push({isFav:false, product:product})
+                    this.productsArray.push({isFav:true, product:product}):
+                    this.productsArray.push({isFav:false, product:product})
             })
         }
 
-        console.log("products array", productsArray);
-
         return(
             <div className="product-list">   
-                {(productsArray ? productsArray: []).map(product => 
+                {(this.productsArray ? this.productsArray: []).map(product => 
                     <div key={product.product.id}>
                         <Product product={product.product} isFav={product.isFav} />
                     </div>
@@ -41,7 +39,8 @@ class ProductList extends Component{
 const mapStateToProps = (state) => {
     const products = state.productReducer;
     const favorites = state.favoriteReducer.product;
-    return {products, favorites};
+    const user = state.userReducer.user;
+    return {products, favorites, user};
 }
   
 export default connect(mapStateToProps, {fetchProducts, getWishList})(ProductList);
